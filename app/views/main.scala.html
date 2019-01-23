@@ -1,0 +1,122 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @* Here's where we render the page title `String`. *@
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+        <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/jquery-1.11.1.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/jquery.canvasjs.min.js")" type="text/javascript"></script>
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-light bg-light">
+
+            <a class="navbar-brand" href="@routes.HomeController.index()">
+                <img src="@routes.Assets.versioned("images/vote.jpeg")"width="30" height="30" class="d-inline-block align-top "   alt="">
+                SCRUTIN : Jugement Majoritaire
+            </a>
+
+            <a>
+                <img src="@routes.Assets.versioned("images/france.svg")"  class="d-inline-block align-top" alt="">
+            </a>
+
+        </nav>
+
+
+        <div class="card text-center">
+
+            <div class="card-header">
+                Le jugement majoritaire est un mode de scrutin inventé par deux chercheurs français du Centre national de la recherche scientifique (CNRS), Michel Balinski et Rida Laraki. Il repose sur une théorie mathématique publiée dans un livre paru chez MIT Press en 2011.
+                C'est un système du type vote par valeurs qui se distingue par l'utilisation d'appréciations verbales plutôt que numériques, et la détermination du gagnant par la médiane plutôt que la moyenne
+            </div>
+
+            <div class="card-body">
+
+                <h5 class="card-title"> @content </h5>
+
+                <h1 class="card-text"> Generer des resultats avec l'algorithme du Jugement Majoritaire </h1>
+
+
+
+
+                <form action=  "@routes.HomeController.action()" method="GET">
+
+                    <button class="btn btn-dark " type="submit" > Resultat du vote
+                        <a>
+                               <img src="@routes.Assets.versioned("images/result.png")" width="80" height="80"  alt="" >
+                        </a>
+                   </button>
+
+                </form>
+
+                         <a>
+                                 <img src="@routes.Assets.versioned("images/logo.jpg")" alt="">
+                        </a>
+
+            </div>
+
+
+
+            <div class="btn-danger btn-lg " >
+
+                <h2> et si on continuait à expérimenter un nouveau mode de scrutin ? </h2>
+
+            </div>
+
+                        <a>
+
+                                <img src="@routes.Assets.versioned("images/1.jpg")"  alt="">
+                        </a>
+                        <a>
+                                <img src="@routes.Assets.versioned("images/2.jpg")"  alt="" >
+                        </a>
+                        <a>
+                                <img src="@routes.Assets.versioned("images/3.jpg")" alt="" >
+                        </a>
+
+
+
+        </div><br><br><br><hr>
+
+
+        <div class="card-footer text-muted text-center " >
+
+                Realisé par Nabil AMEZIANE © 2019
+
+            <a>
+                <img src="@routes.Assets.versioned("images/scala.png")" width="80" height="40" alt="">
+            </a>
+            <a>
+                <img src="@routes.Assets.versioned("images/sbt.png")" width="80" height="80"  alt="">
+            </a>
+            <a>
+                <img src="@routes.Assets.versioned("images/play.png")" width="80" height="40"  alt="">
+            </a>
+            <a>
+                <img src="@routes.Assets.versioned("images/canvas.png")" width="80" height="80"  alt="">
+            </a>
+            <a>
+                <img src="@routes.Assets.versioned("images/bootstrap.png")" width="40" height="40" alt="">
+            </a>
+            <a>
+                <img src="@routes.Assets.versioned("images/html.png")" width="40" height="40" alt="">
+            </a>
+            <a>
+                <img src="@routes.Assets.versioned("images/css.png")" width="30" height="40" alt="">
+            </a>
+
+        </div>
+
+
+
+
+    </body>
+
+</html>
+

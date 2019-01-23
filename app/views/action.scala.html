@@ -1,0 +1,388 @@
+@( json : String )
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        @* Here's where we render the page title `String`. *@
+    <title> SCRUTIN : RESULTAT </title>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+    <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/jquery-1.11.1.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/jquery.canvasjs.min.js")" type="text/javascript"></script>
+    </head>
+
+    <body>
+
+
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="@routes.HomeController.index()">
+                <img src="@routes.Assets.versioned("images/vote.jpeg")"width="30" height="30" class="d-inline-block align-top" alt="">
+                SCRUTIN : Jugement Majoritaire
+            </a>
+            <a>
+                <img src="@routes.Assets.versioned("images/france.svg")"  class="d-inline-block align-top" alt="">
+            </a>
+        </nav>
+
+       <h1 class='btn btn-success btn-lg btn-block'> Félicitation a : @services.Vote.winner </h1>
+
+
+        <div id="chartContainertotal" style="height: 600px; width: 100%;display: inline-block;"></div><br><br><br><br><hr>
+        <div id="chartContainer1" style="width: 45%; height: 350px;display: inline-block;"></div>
+        <div id="chartContainer2" style="width: 45%; height: 350px;display: inline-block;"></div><br><br><br><br>
+        <div id="chartContainer3" style="width: 45%; height: 350px;display: inline-block;"></div>
+        <div id="chartContainer4" style="width: 45%; height: 350px;display: inline-block;"></div><br><br><br><br>
+        <div id="chartContainer5" style="width: 45%; height: 350px;display: inline-block;"></div>
+        <div id="chartContainer6" style="width: 45%; height: 350px;display: inline-block;"></div><br><br><br><br><hr>
+
+
+        <script>
+            var json = @Html(json);
+            var list = json.list;
+
+            window.onload = function () {
+
+                var options1 = {
+                    title: {
+                        text: "Resultat du Scrutin : Jugement Majoritaire "
+                    },
+                    subtitles: [{
+                        text: "Candidat 1 "
+                    }],
+
+
+                    theme: "light2", // "light1", "light2", "dark1", "dark2"
+                    exportEnabled: true,
+                    animationEnabled: true,
+                    data: [{
+                        type: "pie",
+                        startAngle: 0,
+                        toolTipContent: "<b>{label}</b>: {y}%",
+                        showInLegend: "true",
+                        legendText: "{label}",
+                        indexLabelFontSize: 18,
+                        indexLabel: "{label} - {y}%",
+                        dataPoints: [
+                            {y: list[0]*100, label: "A rejeter"},
+                            {y: list[1]*100, label: "Insuffisant"},
+                            {y: list[2]*100, label: "Passable"},
+                            {y: list[3]*100, label: "Assez Bien"},
+                            {y: list[4]*100, label: "Bien"},
+                            {y: list[5]*100, label: "Tres Bien"},
+                        ]
+                    }]
+                };
+                $("#chartContainer1").CanvasJSChart(options1);
+
+
+                var options2 = {
+                    title: {
+                        text: "Resultat du Scrutin : Jugement Majoritaire "
+                    },
+                    subtitles: [{
+                        text: "Candidat 2 "
+                    }],
+
+
+                    theme: "light2", // "light1", "light2", "dark1", "dark2"
+                    exportEnabled: true,
+                    animationEnabled: true,
+                    data: [{
+                        type: "pie",
+                        startAngle: 0,
+                        toolTipContent: "<b>{label}</b>: {y}%",
+                        showInLegend: "true",
+                        legendText: "{label}",
+                        indexLabelFontSize: 18,
+                        indexLabel: "{label} - {y}%",
+                        dataPoints: [
+                            {y: list[7]*100, label: "A rejeter"},
+                            {y: list[8]*100, label: "Insuffisant"},
+                            {y: list[9]*100, label: "Passable"},
+                            {y: list[10]*100, label: "Assez Bien"},
+                            {y: list[11]*100, label: "Bien"},
+                            {y: list[12]*100, label: "Tres Bien"},
+                        ]
+                    }]
+                };
+                $("#chartContainer2").CanvasJSChart(options2);
+
+
+                var options3 = {
+                    title: {
+                        text: "Resultat du Scrutin : Jugement Majoritaire "
+                    },
+                    subtitles: [{
+                        text: "Candidat 3 "
+                    }],
+
+
+                    theme: "light2", // "light1", "light2", "dark1", "dark2"
+                    exportEnabled: true,
+                    animationEnabled: true,
+                    data: [{
+                        type: "pie",
+                        startAngle: 0,
+                        toolTipContent: "<b>{label}</b>: {y}%",
+                        showInLegend: "true",
+                        legendText: "{label}",
+                        indexLabelFontSize: 18,
+                        indexLabel: "{label} - {y}%",
+                        dataPoints: [
+                            {y: list[14]*100, label: "A rejeter"},
+                            {y: list[15]*100, label: "Insuffisant"},
+                            {y: list[16]*100, label: "Passable"},
+                            {y: list[17]*100, label: "Assez Bien"},
+                            {y: list[18]*100, label: "Bien"},
+                            {y: list[19]*100, label: "Trés Bien"},
+                        ]
+                    }]
+                };
+                $("#chartContainer3").CanvasJSChart(options3);
+
+
+
+                var options4 = {
+                    title: {
+                        text: "Resultat du Scrutin : Jugement Majoritaire "
+                    },
+                    subtitles: [{
+                        text: "Candidat 4 "
+                    }],
+
+
+                    theme: "light2", // "light1", "light2", "dark1", "dark2"
+                    exportEnabled: true,
+                    animationEnabled: true,
+                    data: [{
+                        type: "pie",
+                        startAngle: 0,
+                        toolTipContent: "<b>{label}</b>: {y}%",
+                        showInLegend: "true",
+                        legendText: "{label}",
+                        indexLabelFontSize: 18,
+                        indexLabel: "{label} - {y}%",
+                        dataPoints: [
+                            {y: list[21]*100, label: "A rejeter"},
+                            {y: list[22]*100, label: "Insuffisant"},
+                            {y: list[23]*100, label: "Passable"},
+                            {y: list[24]*100, label: "Assez Bien"},
+                            {y: list[25]*100, label: "Bien"},
+                            {y: list[26]*100, label: "Tres Bien"},
+                        ]
+                    }]
+                };
+                $("#chartContainer4").CanvasJSChart(options4);
+
+
+
+                var options5 = {
+                    title: {
+                        text: "Resultat du Scrutin : Jugement Majoritaire "
+                    },
+                    subtitles: [{
+                        text: "Candidat 5 "
+                    }],
+
+
+                    theme: "light2", // "light1", "light2", "dark1", "dark2"
+                    exportEnabled: true,
+                    animationEnabled: true,
+                    data: [{
+                        type: "pie",
+                        startAngle: 0,
+                        toolTipContent: "<b>{label}</b>: {y}%",
+                        showInLegend: "true",
+                        legendText: "{label}",
+                        indexLabelFontSize: 18,
+                        indexLabel: "{label} - {y}%",
+                        dataPoints: [
+                            {y: list[28]*100, label: "A rejeter"},
+                            {y: list[29]*100, label: "Insuffisant"},
+                            {y: list[30]*100, label: "Passable"},
+                            {y: list[31]*100, label: "Assez Bien"},
+                            {y: list[32]*100, label: "Bien"},
+                            {y: list[33]*100, label: "Trés Bien"},
+                        ]
+                    }]
+                };
+                $("#chartContainer5").CanvasJSChart(options5);
+
+
+
+                var options6 = {
+                    title: {
+                        text: "Resultat du Scrutin : Jugement Majoritaire "
+                    },
+                    subtitles: [{
+                        text: "Candidat 6 "
+                    }],
+
+
+                    theme: "light2", // "light1", "light2", "dark1", "dark2"
+                    exportEnabled: true,
+                    animationEnabled: true,
+                    data: [{
+                        type: "pie",
+                        startAngle: 0,
+                        toolTipContent: "<b>{label}</b>: {y}%",
+                        showInLegend: "true",
+                        legendText: "{label}",
+                        indexLabelFontSize: 18,
+                        indexLabel: "{label} - {y}%",
+                        dataPoints: [
+                            {y: list[35]*100, label: "A rejeter"},
+                            {y: list[36]*100, label: "Insufisant"},
+                            {y: list[37]*100, label: "Passable"},
+                            {y: list[38]*100, label: "Assez Bien"},
+                            {y: list[39]*100, label: "Bien"},
+                            {y: list[40]*100, label: "Tres Bien"},
+                        ]
+                    }]
+                };
+                $("#chartContainer6").CanvasJSChart(options6);
+
+
+                var options7 =  {
+                    animationEnabled: true,
+                    theme: "light2", //"light1", "dark1", "dark2"
+                    title:{
+                        text: "Resultat du Scrutin : Jugement Majoritaire "
+                    },
+                    axisY:{
+                        interval: 10,
+                        suffix: "%"
+                    },
+                    toolTip:{
+                        shared: true
+                    },
+                    data:[{
+                        type: "stackedBar100",
+                        toolTipContent: "{label}<br><b>{name}:</b> {y} (#percent%)",
+                        showInLegend: true,
+                        name: "A rejeter",
+                        dataPoints: [
+                            { y: list[0] * 100, label: "Candidat 1" },
+                            { y: list[7] * 100, label: "Candidat 2" },
+                            { y: list[14] * 100, label: "Candidat 3" },
+                            { y: list[21] * 100, label: "Candidat 4" },
+                            { y: list[28] * 100, label: "Candidat 5" },
+                            { y: list[35] * 100, label: "Candidat 6" },
+                        ]
+                    },
+                        {
+                            type: "stackedBar100",
+                            toolTipContent: "<b>{name}:</b> {y} (#percent%)",
+                            showInLegend: true,
+                            name: "Insuffisant",
+                            dataPoints: [
+                                { y: list[1] * 100, label: "Candidat 1" },
+                                { y: list[8] * 100, label: "Candidat 2" },
+                                { y: list[15] * 100, label: "Candidat 3" },
+                                { y: list[22] * 100, label: "Candidat 4" },
+                                { y: list[29] * 100, label: "Candidat 5" },
+                                { y: list[36] * 100, label: "Candidat 6" }
+                            ]
+                        },
+                        {
+                            type: "stackedBar100",
+                            toolTipContent: "<b>{name}:</b> {y} (#percent%)",
+                            showInLegend: true,
+                            name: "Passable",
+                            dataPoints: [
+                                { y: list[2] * 100, label: "Candidat 1" },
+                                { y: list[9] * 100, label: "Candidat 2" },
+                                { y: list[16] * 100, label: "Candidat 3" },
+                                { y: list[23] * 100, label: "Candidat 4" },
+                                { y: list[30] * 100, label: "Candidat 5" },
+                                { y: list[37] * 100, label: "Candidat 6" }
+                            ]
+                        },
+                        {
+                            type: "stackedBar100",
+                            toolTipContent: "<b>{name}:</b> {y} (#percent%)",
+                            showInLegend: true,
+                            name: "Assez Bien",
+                            dataPoints: [
+                                { y: list[3] * 100, label: "Candidat 1" },
+                                { y: list[10] * 100, label: "Candidat 2" },
+                                { y: list[17] * 100, label: "Candidat 3" },
+                                { y: list[24] * 100, label: "Candidat 4" },
+                                { y: list[31] * 100, label: "Candidat 5" },
+                                { y: list[38] * 100, label: "Candidat 6" }
+                            ]
+                        },
+                        {
+                            type: "stackedBar100",
+                            toolTipContent: "<b>{name}:</b> {y} (#percent%)",
+                            showInLegend: true,
+                            name: "Bien",
+                            dataPoints: [
+                                { y: list[4] * 100, label: "Candidat 1" },
+                                { y: list[11] * 100, label: "Candidat 2" },
+                                { y: list[18] * 100, label: "Candidat 3" },
+                                { y: list[25] * 100, label: "Candidat 4" },
+                                { y: list[32] * 100, label: "Candidat 5" },
+                                { y: list[39] * 100, label: "Candidat 6" }
+                            ]
+                        },
+                        {
+                            type: "stackedBar100",
+                            toolTipContent: "<b>{name}:</b> {y} (#percent%)",
+                            showInLegend: true,
+                            name: "Tres Bien",
+                            dataPoints: [
+                                { y: list[5] * 100, label: "Candidat 1" },
+                                { y: list[12] * 100, label: "Candidat 2" },
+                                { y: list[19] * 100, label: "Candidat 3" },
+                                { y: list[26] * 100, label: "Candidat 4" },
+                                { y: list[33] * 100, label: "Candidat 5" },
+                                { y: list[40] * 100, label: "Candidat 6" }
+                            ]
+                        }
+
+                    ]
+                };
+                $("#chartContainertotal").CanvasJSChart(options7);
+
+            }
+
+
+        </script>
+
+        <div class="card-footer text-muted text-center ">
+
+            Realisé par Nabil AMEZIANE © 2019
+
+            <a>
+                <img src="@routes.Assets.versioned("images/scala.png")" width="80" height="40" alt="">
+            </a>
+            <a>
+                <img src="@routes.Assets.versioned("images/sbt.png")" width="80" height="80"  alt="">
+            </a>
+            <a>
+                <img src="@routes.Assets.versioned("images/play.png")" width="80" height="40"  alt="">
+            </a>
+            <a>
+                <img src="@routes.Assets.versioned("images/canvas.png")" width="80" height="80"  alt="">
+            </a>
+            <a>
+                <img src="@routes.Assets.versioned("images/bootstrap.png")" width="40" height="40" alt="">
+            </a>
+            <a>
+                <img src="@routes.Assets.versioned("images/html.png")" width="40" height="40" alt="">
+            </a>
+            <a>
+                <img src="@routes.Assets.versioned("images/css.png")" width="30" height="40" alt="">
+            </a>
+
+        </div>
+
+
+    </body>
+
+</html>
+
+
