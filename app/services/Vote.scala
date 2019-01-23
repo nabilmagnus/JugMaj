@@ -87,9 +87,7 @@ object Vote {
   }
 
 
-
   def winner() : String = {
-
 
     // Dictionaire des candidat
 
@@ -102,7 +100,6 @@ object Vote {
     mapCandidat(4) = " Candidat 4 "
     mapCandidat(5) = " Candidat 5 "
     mapCandidat(6) = " Candidat 6 "
-
 
     var win = myList.last.toInt
 

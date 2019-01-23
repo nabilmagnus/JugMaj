@@ -15,7 +15,7 @@ Cette expérience à grande échelle réalisée en partenariat avec LaPrimaire.o
 
 
 
-# Outils Utilisée :
+# Outils et Langages :
 
 
 
@@ -33,9 +33,10 @@ Cette expérience à grande échelle réalisée en partenariat avec LaPrimaire.o
 
 # Données d'entrée :
 
-les votes vont etre insrer sous forme d'un fichier csv { data.csv } portant la strucutre suivante :
+les votes vont être insérer sous forme d'un fichier csv { data.csv } portant la
+structure suivante :
 
-* Chaque ligne contien un vote d'une personne pour les 6 candidat  et il attribue les mentions suivante :
+* Chaque ligne contien un vote d'une personne pour les 6 candidats  et il attribue les mentions suivantes :
 
   > 1 => A rejeter 
   >
@@ -82,24 +83,24 @@ Avant de compiler il faut specifier le chemin vers le CSV qui va etre traiter po
   et changer le chemin existant vers le chemin ou vous allez mettre le fichier data.csv :
 
   ```scala
-  val result = content.readFromFile("/Chemins/vers/mon/projet/JugMaj/public/data/data.csv")
+  val result = content.readFromFile("/Chemin/vers/mon/projet/JugMaj/public/data/data.csv")
   ```
 
   
 
-  Puis Aprés pour compiler il faut ce mettre a l'interieur du projet { /JugMag } et lancer la commande suiante :
+  Puis Aprés pour compiler il faut ce placer l'interieur du projet { /JugMag } et lancer la commande suiante sur le terminal :
 
   ```shell
   sbt run 
   ```
 
-   le serveur va se lancer et on pourra accerder a la page d'acceuil de l'application avec l'adresse suivante :
+   le serveur va se lancer et on pourra accéder a la page d'acceuil de l'application avec l'adresse suivante :
 
   ```http
   http://localhost:9000/
   ```
 
-Aprés cela il suffira de juste on aura une explication avec des images sur le jugement majoritaire et on poura generer des resultat de note scrutin contenu dans notre { data.csv } sur la page :
+Aprés cela il suffira juste de se rendre sur la page d'acceuil , on aura une explication avec des images sur le jugement majoritaire et on poura générer des resultats de notre scrutin contenu dans notre { data.csv } sur la page :
 
 ```http
 http://localhost:9000/action?
@@ -109,10 +110,19 @@ http://localhost:9000/action?
 
 # Ameloration : 
 
-J'ai commencer aussi par implementer un FileUploader qui fonctionne si on lui donne le chemin mais Maleursement par manque de temps j'ai pas pu reussi a router vers le bon directory pour sauvagarder le fichier sur mon serveur et le recuprer pour travailler dessus plustard.
+​	J'ai commencer aussi par implementer un FileUploader qui fonctionne si on lui donne le bon chemin mais malheursement par manque de temps j'ai pas pu reussir a router vers le bon directory pour sauvagarder le fichier sur mon serveur et le récuperer pour travailler dessus plustard.
 
 
 
 # Conculsion :
 
-grace a se projet j'ai pu apprendre a programmer en scala et particullieremnt travailler sur ( Play ! ) un framework serveur web que je trouve un peut defficile a prendre en mains mais une fois on s'habitue on peut s'en passer et cela parceque j'ai plusieur defficulté lie a l'accés vers les fichiers cela m'a aussi interpeller que le framework play a un trés bonne sécurité d'acces au contenus j'ai du la descativer afin d'eviter plusieurs erreurs et finir mon projet rapidement vu le temps imparti .
+​	grâce a se projet j'ai pu apprendre a programmer en scala et
+particulièrement travailler sur ( Play ! ) un framework serveur web que je
+trouve un peut difficile a prendre en mains mais une fois on qu’on s y habitue
+on peut pas s'en passer et cela parce-que j'ai eu plusieurs difficulté lie a l’accès
+a mes fichiers cela m'a aussi interpeller sur le fait que le framework play a une
+très bonne sécurité d’accès au contenus , j'ai du la désactiver afin d’éviter
+plusieurs erreurs et finir mon projet rapidement vu le temps imparti
+
+​	Ce framework aura un grand avantage pour la gestion de notre projet
+quand ce dernier grand en contenus .
